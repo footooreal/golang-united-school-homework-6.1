@@ -16,8 +16,7 @@ func NewBox(shapesCapacity int) *box {
 // AddShape adds shape to the box
 // returns the error in case it goes out of the shapesCapacity range.
 func (b *box) AddShape(shape Shape) error {
-	c := len(b.shapes)
-	if c > b.shapesCapacity {
+	if len(b.shapes) < b.shapesCapacity {
 		b.shapes = append(b.shapes, shape)
 	} else {
 		panic("added more than max elements")
