@@ -20,7 +20,7 @@ func (b *box) AddShape(shape Shape) error {
 	if c < b.shapesCapacity {
 		b.shapes = append(b.shapes, shape)
 	} else {
-		panic("implement me")
+		panic("added more than max elements")
 	}
 	return nil
 }
