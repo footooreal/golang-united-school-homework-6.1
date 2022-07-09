@@ -19,7 +19,7 @@ func (b *box) AddShape(shape Shape) error {
 	if len(b.shapes) < b.shapesCapacity {
 		b.shapes = append(b.shapes, shape)
 	} else {
-		fmt.Errorf("too many shapes")
+		return fmt.Errorf("too many shapes")
 	}
 	return nil
 }
@@ -28,7 +28,7 @@ func (b *box) AddShape(shape Shape) error {
 // whether shape by index doesn't exist or index went out of the range, then it returns an error
 func (b *box) GetByIndex(i int) (Shape, error) {
 	if len(b.shapes) < i {
-		panic("implement me")
+		return fmt.Errorf("shape doesn't exist or out of range")
 	}
 	return b.shapes[i], nil
 }
@@ -37,7 +37,7 @@ func (b *box) GetByIndex(i int) (Shape, error) {
 // whether shape by index doesn't exist or index went out of the range, then it returns an error
 func (b *box) ExtractByIndex(i int) (Shape, error) {
 	if len(b.shapes) < i {
-		panic("implement me")
+		return fmt.Errorf("shape doesn't exist or out of range")
 	}
 	s1 := b.shapes[:i]
 	s2 := b.shapes[i+1:]
@@ -52,7 +52,7 @@ func (b *box) ExtractByIndex(i int) (Shape, error) {
 // whether shape by index doesn't exist or index went out of the range, then it returns an error
 func (b *box) ReplaceByIndex(i int, shape Shape) (Shape, error) {
 	if len(b.shapes) < i {
-		panic("implement me")
+		return fmt.Errorf("bad index")
 	}
 	s1 := b.shapes[:i]
 	s2 := b.shapes[i+1:]
@@ -123,7 +123,7 @@ func (b *box) RemoveAllCircles() error {
 		}
 	}
 	if c <= 0 {
-		panic("implement me")
+		return fmt.Errorf("circles are not in the list")
 	}
-	panic("implement me")
+	return fmt.Errorf("circles are not in the list")
 }
