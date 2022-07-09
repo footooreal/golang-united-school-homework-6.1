@@ -19,7 +19,7 @@ func (b *box) AddShape(shape Shape) error {
 	if len(b.shapes) < b.shapesCapacity {
 		b.shapes = append(b.shapes, shape)
 	} else {
-		return errors.New("too many shapes")
+		fmt.Errorf("too many shapes")
 	}
 	return nil
 }
