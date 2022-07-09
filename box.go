@@ -30,7 +30,7 @@ func (b *box) AddShape(shape Shape) error {
 // whether shape by index doesn't exist or index went out of the range, then it returns an error
 func (b *box) GetByIndex(i int) (Shape, error) {
 	if len(b.shapes) < i-1 {
-		panic(errors.New("error"))
+		return "", errors.New("error")
 	}
 	return b.shapes[i], nil
 }
